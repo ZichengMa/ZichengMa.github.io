@@ -1,12 +1,8 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - ZichengMa
+  - ZichengMa
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - vmware-research/verifiable-controllers
+  - ZichengMa/CrimeMapUIUC
+  - AllenHeartcore/MCM2022_2214713
