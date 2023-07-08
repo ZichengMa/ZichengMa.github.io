@@ -1,9 +1,11 @@
 ---
+layout: post
 title: MedicalDB
-typora-root-url: MedicalDB
 date: 2023-01-14 15:33:02
-description: Self-design database system based on B+Tree
-tags: project
+description: Self-design database system based on B+Tree. Course project from CS225.
+categories: projects
+giscus_comments: true
+related_posts: true
 ---
 # Medical Appointment DB
 

@@ -1,9 +1,11 @@
 ---
+layout: post
 title: k8s operator practice
-typora-root-url: k8s operator practice
 date: 2023-03-26 20:28:15
 description: Introduction about k8s operator and a sample code of a very simple controller.
-tags:
+categories: notes
+giscus_comments: true
+related_posts: true
 ---
 
 I am learning how to write Kubernetes operator these days. This post is used to record some basic definition and a very good sample controller implemented by [RedHat](http://workshop.coreostrain.me/lab/go-operator/podset/).

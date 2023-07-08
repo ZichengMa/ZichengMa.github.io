@@ -3,7 +3,7 @@ layout: post
 title: ECE391-MP3-Tutorial
 date: 2023-01-13 17:37:54
 description: A tutorial and tips for ECE391 MP3.
-categories: sample-posts blockquotes
+categories: course-notes
 giscus_comments: true
 related_posts: true
 ---
