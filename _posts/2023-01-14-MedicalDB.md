@@ -3,7 +3,7 @@ layout: post
 title: MedicalDB
 date: 2023-01-14 15:33:02
 description: Self-design database system based on B+Tree. Course project from CS225.
-categories: projects
+tags: projects
 giscus_comments: true
 related_posts: true
 ---

@@ -3,7 +3,7 @@ layout: post
 title: k8s operator practice
 date: 2023-03-26 20:28:15
 description: Introduction about k8s operator and a sample code of a very simple controller.
-categories: notes
+tags: notes
 giscus_comments: true
 related_posts: true
 ---
