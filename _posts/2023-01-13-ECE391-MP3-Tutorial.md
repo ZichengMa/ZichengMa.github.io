@@ -6,6 +6,9 @@ description: A tutorial and tips for ECE391 MP3.
 categories: course-notes
 giscus_comments: true
 related_posts: true
+typora-root-url: ../blog/2023/ECE391-MP3-Tutorial
+toc:
+  sidebar: left
 ---
 # ECE391 MP3
 
@@ -19,7 +22,7 @@ related_posts: true
 > 
 
 > Language: 中文+English
- 
+
 
 FA22 ECE391本人最终评分A+，侧面表明这篇文档在一定程度上还是可以信赖的，而且有我的队友对文档进行查改和补充~~*但如果写出bug，本人概不负责*~~ 🤣 😋
 
@@ -60,13 +63,14 @@ reference:[https://wiki.osdev.org/PIC](https://wiki.osdev.org/PIC)
 
 PIC所使用port位置
 
-![Untitled](Untitled.png)
+![](Untitled.png){: width="250" }
+
 
 在IDT中，PIC_MASTER使用**0x20-0x27** vector呼叫handler，PIC_SLAVE使用**0x28-0x2F**呼叫handler
 
 PIC_SLAVE链接到PIC_MASTER的**2号vector**
 
----
+
 
 ***Initialization:***
 
@@ -86,9 +90,9 @@ PIC内部存在一个register Interrupt Mask Register，共8bit，当对应bit�
 
 先判断irq是否超过7，若超过7，向PIC_SLAVE的data port传入数据，否则向PIC_MASTERdata port传入数据
 
-<img src="Untitled1.png" alt="Untitled" style="zoom:50%;" />
+![](Untitled1.png){: width="320" }
+![](Untitled2.png){: width="320" }
 
-<img src="Untitled2.png" alt="Untitled" style="zoom:50%;" />
 
 ---
 
@@ -98,7 +102,7 @@ PIC内部存在一个register Interrupt Mask Register，共8bit，当对应bit�
 
 注意: 我们的代码中EOI在send之前需要和irq做一个OR操作，以告知PIC是哪一个irq结束
 
-![Untitled](Untitled3.png)
+![Untitled](Untitled3.png){: width="320" }
 
 补充：以上函数均需要做**sanity check**，不允许传入的irq number是一个0-15以外的数值
 
@@ -112,7 +116,7 @@ RTC handler期间，禁用NMI，否则导致RTC变成不可用状态
 
 RTC使用**port 0x70和0x71**，0x70用来指示用哪个register，0x71包含数据。在选择register时可以顺带mask掉NMI
 
-![Untitled](Untitled4.png)
+![Untitled](Untitled4.png){: width="750" }
 
 ---
 
@@ -120,7 +124,7 @@ RTC使用**port 0x70和0x71**，0x70用来指示用哪个register，0x71包含�
 
 1. 打开IRQ8  这里reset原因是每次读写完之后，port 0x70的内容都会被清零，需要重新指定register，然后在这之后要`enable_irq(8)`
 
-![Untitled](Untitled5.png)
+![Untitled](Untitled5.png){: width="750" }
 
 1. 选择interrupt产生的frequency
    
@@ -130,7 +134,7 @@ RTC使用**port 0x70和0x71**，0x70用来指示用哪个register，0x71包含�
     
     **rate最低只能选3**，低于3会roll over，导致interrupt频率不准
     
-    ![Untitled](Untitled6.png)
+    ![Untitled](Untitled6.png){: width="750" }
     
 
 ---
@@ -225,11 +229,11 @@ ToDo:
 
 对于terminal，read多少字符，就把buffer中的多少个字符给清空，并将后面的挪动到前面来
 
-****************^ 其实可以直接覆写****************
+^ 其实可以直接覆写
 
 read有两种情况会终止，第一种是read到指定byte数目，第二种是碰到了\n（其实只有一种？）
 
-********************************************************************^ 只在读到\n时返回即可，越界时直接忽略后面的字符********************************************************************
+^ 只在读到\n时返回即可，越界时直接忽略后面的字符
 
 **write:**
 
@@ -237,11 +241,11 @@ read有两种情况会终止，第一种是read到指定byte数目，第二种�
 
 **注意需要滚动换行↓的情况：打印字符计数达到80时触发scrolling函数**
 
-****scrolling:****
+**scrolling:**
 
 可能要修改putc函数，将上方所有内容向上移动一行，把最底下一行清空，然后再打印新的字符（直接更新vmem）
 
-****clear:****
+**clear:**
 
 lib.c中的clear函数只有清理video memory的操作，没有重置下一个character应该出现的位置
 
@@ -256,7 +260,7 @@ ToDo:
 1. open and read a file system image
 2. copy program images into physical memory
 
-### ********基本数据结构********
+### 基本数据结构
 
 每个Block 4kB，第一个block称为boot block，包含file system的整体统计信息（dir数量、inode数量、数据块数量）和所有的directory。统计信息、每个directory均占据64B
 
@@ -264,17 +268,17 @@ ToDo:
 
 每一个directory包含：32B文件名（不一定要包含EOS，也即未必有”\0”标记字符串尾）、4B文件类型、4B inode索引
 
-![Untitled](Untitled10.png)
+![Untitled](Untitled10.png){: width="850" }
 
 file type 0 代表user level可以触碰的RTC，1 for directory，2 for regular file。对于RTC和directory，#inode是没有意义的。
 
-![Untitled](Untitled11.png)
+![Untitled](Untitled11.png){: width="650" }
 
 以上三个函数都是失败return -1（fname不存在/index不合法/#inode不合法/inode中数据块索引不合法）。前两个函数成功都会将dentry指针赋值成所需要的那个directory数据，第三个函数相当于“read”这一system call，返回读取了多少个byte
 
 ---
 
-************与Task的联动：************
+**与Task的联动：**
 
 每一个task最多开启8个file，它们被存在一个file array中，而file descriptor就是用来在array中找寻这些file的。file array中的每一个元素都应该储存以下四种信息
 
@@ -283,21 +287,21 @@ file type 0 代表user level可以触碰的RTC，1 for directory，2 for regular
 3. file position，指示用户在什么位置开启了这个file，由read system call更新
 4. flag，用来指示当前descriptor正在使用
 
-![Untitled](Untitled12.png)
+![Untitled](Untitled12.png){: width="850" }
 
 open a file的流程：储存对应的jump table pointer，将flag设置成in-use
 
 ---
 
-### ********************************filesystem_init********************************
+### filesystem_init
 
 1. 找到File img的开头地址，File的所有信息在boot的时候就已经帮我们储存在了内存的某一个地方
    
     根据文档，每一个img都算是一个module，可以load进去
     
-    ![Untitled](Untitled.jpeg)
+    ![Untitled](Untitled.jpeg){: width="750" }
     
-    ![Untitled](Untitled13.png)
+    ![Untitled](Untitled13.png){: width="650" }
     
 2. 在`kernel.c`里进行file system初始化，将上面找到的指针传递给file system
 3. 传入的地址是boot_blcok的开头，直接将一个全局变量boot_block_ptr指向这个地方
@@ -310,19 +314,19 @@ open a file的流程：储存对应的jump table pointer，将flag设置成in-us
 
 ### Three base functions
 
-****read_dentry_by_index:****
+**read_dentry_by_index:**
 
 1. sanity check，如果index超出dir_num，return -1
 2. 将boot_block中的`dentries[index]`值赋给传入的dentry指针
     1. 赋值过程中，filename必须用`lib.c`提供的`strncpy`，因为filename允许没有string结尾符`\0`
 
-****read_dentry_by_name:****
+**read_dentry_by_name:**
 
 1. 设置一个index变量，遍历所有在boot_block的file name，每次index++
 2. index++之后做check，如果已经超出dir_num，return -1
 3. 如果匹配到（利用`lib.c`中提供的`strncmp`），呼叫`read_dentry_by_index(index, dentry)`，让read_dentry_by_index完成真正的赋值操作
 
-********************read_data:********************
+**read_data:**
 
 1. sanity check，确认(file总长度-offset)>0 并且 inode_index < boot_block拥有的inode数目-1
 2. 找到对应的inode，`inodes_arr[i]`
@@ -362,7 +366,7 @@ reference:[https://wiki.osdev.org/RTC](https://wiki.osdev.org/RTC)
 
 跟踪全局flag，用一个while loop让read函数陷入循环，直到flag被设置成1，跳出循环。跳出时再重新将flag设置为0，return。这样可以达到一种类似于linux中sleep的效果。
 
-************write:************
+**write:**
 
 先做sanity check，如果都通过，根据传入的frequency设置freq。此时暂时只有一个terminal，没有进程之间的切换，在后续ckpt中需要检查当前write指令是由哪一个进程调用的，修改这个进程对应的freq
 
@@ -457,7 +461,7 @@ system call的传入参数性质也决定了我们需要为它们编写一个wra
 **Check file validity**
 
 1. 利用file name检查file中是否存在一样的文件，在这里利用**read_dentry_by_name**时可以把信息存在一个dentry变量中，接下来需要使用
-2. 再读取这个file的前4个bytes（**read_data**)，查看它是否是一个可执行文件
+2. 再读取这个file的前4个bytes（**read_data**），查看它是否是一个可执行文件
 3. 在这里也可以直接获取program第一条指令执行的位置（**read_data**），储存在可执行文件的24-27bytes
 
 **Create PCBs**
@@ -609,7 +613,7 @@ excute_ebp / excute_esp 用于halt
 
 将两个位置之间的args字符串拷贝进PCB（args之间可以有任意数量空格，交给user program处理）
 
-成功返回0，失败（args****************************************************************************+NULL****************************************************************************太大/检测不到args）返回-1
+成功返回0，失败（args+NULL太大/检测不到args）返回-1
 
 最好把PCB #0（shell）的args字符串设置为”\0”
 
@@ -664,7 +668,7 @@ vidmap(screen_start);
 
 ### Switch
 
-![multi terminal 内存示意图](Untitled16.png)
+![multi terminal 内存示意图](Untitled16.png){: width="850" }
 
 multi terminal 内存示意图
 
@@ -725,7 +729,7 @@ Scheduling中计时使用PIT而非RTC，因为RTC的优先级太低了
 
 所以只要我们发现可以找到next process，那这个process一定是属于2情况，即stack上残留了上一次scheduler未return的所有信息，在接下来的task switch中，以为switch的时候依然使用的是scheduler的代码，直接更改esp、ebp即可
 
-![Untitled](Untitled17.png)
+![Untitled](Untitled17.png){: width="850" }
 
 ### 步骤
 
@@ -767,7 +771,7 @@ Scheduling中计时使用PIT而非RTC，因为RTC的优先级太低了
 
 ---
 
-![Untitled](Untitled18.png)
+![Untitled](Untitled18.png){: width="850" }
 
 virtual的0xB8000指向scheduled process的backup buffer，如果和display terminal是一个，则指向physical的0xB8000
 
