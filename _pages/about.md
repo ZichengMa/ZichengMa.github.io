@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: A carbon-based life living on a blue planet.🌏<br>Undergraduate researcher at <a href='https://github.com/xlab-uiuc/'>x-lab</a>. Supervised by <a href='https://tianyin.github.io/'>Tianyin Xu</a>, a watchman in the cornfields.
+subtitle: A carbon-based life living on a blue planet.🌏<br>Undergraduate researcher at <a href='https://github.com/xlab-uiuc/'>x-lab</a>. Supervised by <a href='https://tianyin.github.io/'>Tianyin Xu</a>, a watchman in the cornfields. <br>Research Intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'>Microsoft Research Asia</a> <a href='https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/'>DKI group</a>. My mentor is Shilin He.
 
 profile:
   align: right

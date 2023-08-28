@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 title:  a post with videos
 date: 2023-04-24 21:01:00
@@ -29,4 +29,4 @@ It does also support embedding videos from different sources. Here are some exam
     <div class="col-sm mt-3 mt-md-0">
         {% include video.html path="https://player.vimeo.com/video/524933864?h=1ac4fd9fb4&title=0&byline=0&portrait=0" class="img-fluid rounded z-depth-1" %}
     </div>
-</div>
+</div> -->

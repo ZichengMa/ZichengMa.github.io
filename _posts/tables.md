@@ -1,4 +1,4 @@
----
+<!-- ---
 layout: post
 title: displaying beautiful tables with Bootstrap Tables
 date: 2023-03-20 14:37:00-0400
@@ -100,4 +100,4 @@ By using [Bootstrap Table](https://bootstrap-table.com/) it is possible to creat
       <th data-field="price" data-halign="right" data-align="left" data-sortable="true">Item Price</th>
     </tr>
   </thead>
-</table>
+</table> -->

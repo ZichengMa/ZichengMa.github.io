@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Working in X-Lab at UIUC on a verifiable k8s controller project - Anvil
+Join X-Lab at UIUC and start to work on a verifiable k8s controller project - Anvil.
