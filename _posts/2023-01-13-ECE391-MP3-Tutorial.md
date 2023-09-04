@@ -7,8 +7,6 @@ tags: course-notes
 giscus_comments: true
 related_posts: true
 typora-root-url: ../blog/2023/ECE391-MP3-Tutorial
-toc:
-  sidebar: left
 ---
 # ECE391 MP3
 
