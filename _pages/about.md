@@ -35,6 +35,6 @@ Beside my research interest, I am a deep coffee lover.☕️ Drinking and brewin
 
 Whether you are interested in my scientific research or my coffee life, please feel free to contact me, I am looking forward to meeting more like-minded friends.
 
-#### `$ echo $my_experiences`
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+#### `$ echo $my_honor`
+I have received the National Scholarship twice, an award bestowed upon only top 0.2% of Chinese university students, which is the highest honor a Chinese student can achieve. Additionally, I was recognized as a Finalist in the United States Mathematical Modeling Competition awarded to just 1% of participating teams worldwide. Beisdes, I have earned either the first-tier scholarships at my university, indicative of my consistent academic excellence and GPA ranking within the top one.
+<!-- Link to your social media connections, too. This theme is set up to use [Font Awesome icons](http://fortawesome.github.io/Font-Awesome/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->
