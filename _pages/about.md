@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: A carbon-based life living on a blue planet.🌏 A man can not live without coffee☕️.<br>Previous researcher at <a href='https://github.com/xlab-uiuc/'>x-lab</a>. Supervised by <a href='https://tianyin.github.io/'>Tianyin Xu</a>, a watchman in the cornfields. <br>Previous Intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'>Microsoft Research Asia</a> <a href='https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/'>DKI group</a> mentored by <a href='https://shilinhe.github.io/'>Shilin He</a>.
+subtitle: A carbon-based life living on a blue planet.🌏 A man can not live without coffee☕️.<br>Previous researcher at <a href='https://github.com/xlab-uiuc/'>x-lab</a>. Supervised by <a href='https://tianyin.github.io/'>Tianyin Xu</a>, a watchman in the cornfields. <br>Previous Intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/'>Microsoft Research Asia</a> <a href='https://www.microsoft.com/en-us/research/group/data-knowledge-intelligence/'>DKI group</a> mentored by <a href='https://shilinhe.github.io/'>Shilin He</a>.<br>Going to chase Master degree at Harvard in Fall 24.<br>Open to SWE intern opportunities.
 
 profile:
   align: right
